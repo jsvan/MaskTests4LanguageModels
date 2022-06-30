@@ -1,1 +1,1 @@
-"# MaskTests4LanguageModels" 
+Roberta-Large handles most masking schemes without problem. The worst masks are alternate spellings of the same word. However, with one epoch of training, there is no masking scheme which is meaningfully different than no masking at all. This shows that the Roberta model robustly keeps track of object identity above a naive usage of unigram word vector representation. Read the ipynb for more. 
