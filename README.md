@@ -1,3 +1,16 @@
-Roberta-Large handles most masking schemes without problem. The worst masks are alternate spellings of the same word. However, with one epoch of training, there is no masking scheme which is meaningfully different than no masking at all. This shows that the Roberta model robustly keeps track of object identity above a naive usage of unigram word vector representation. Read the ipynb for more. 
+How does a language model understand words? It represents input text in a rich and complex feature vector. Simple word vectors learn co-occurence probabilities between words and represent each word within context with every other word. Better embeddings use the maximum space allowed to represent words as far away from each other as possible.
+
+When Roberta trains on Winogrande, how is it able to differentiate the different words in its task? For example,
+
+    "After swimming in the ocean, the children dried off in the sand. The sand is wet." (True/False)
+
+"Ocean" is represented very differently in vector space than "sand". It should be no problem for the classifier to differentiate those objects. What happens if we mask the objects, thereby removing the representational advantage these words have. If we use masking terminology that is semantically similar, such as "mask1" and "mask2", will the classifier become confused and guess masked entities randomly? Do different masking techniques alter accuracy to any noticable degree?
+
+One quick note on why masking is important. In areas of sentiment analysis and common sense reasoning, the model may learn inappropriate relations between subject words and the task. These relations may warp the task. Take for example sentiment analysis on news articles. It may be that subjects related to negative sentiment then bias the model just by their appearance. For example, Trump is correlated with negative sentiment. Masking keeps the model safe from this biasing while allowing us to mine its information.
+
+We will look at arbitrary masking strings, as malicious as I can imagine them, and using the built in UNKNOWN mask to mask either the subject of the question, or the entity not in the question.
+
+I find that the model normally does a fine job regardless of my malicious tests, but some masking techniques are worse than others. However, after one epoch of training on my masking technique, results are not meaningfully different than performance without masks.
+ Read the ipynb for more. 
 
 ![image](https://user-images.githubusercontent.com/9337973/176744925-04a350af-d225-4b8b-9d86-82074c2170df.png)
