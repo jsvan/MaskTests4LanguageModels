@@ -11,6 +11,6 @@ We will look at arbitrary masking strings, as malicious as I can imagine them, a
 
 I find that the model normally does a fine job regardless of my malicious tests, but some masking techniques are worse than others. However, after one epoch of training on my masking technique, results are not meaningfully different than performance without masks. 
 
- Read the ipynb for more. 
+ Read the ipynb for more. Yes, sorry, I know I spelled "Segundo" wrong. That was really low hanging fruit...
 
 ![image](https://user-images.githubusercontent.com/9337973/176798553-ca53d6f8-b1ab-46e0-9111-f81cc0a2225f.png)
